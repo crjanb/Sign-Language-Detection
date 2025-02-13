@@ -34,12 +34,12 @@ Ensure you have Python installed (version 3.x recommended). Install dependencies
 pip install -r requirements.txt
 ```
 ## Required Libraries
-1.OpenCV (cv2)
-2.Mediapipe
-3.Numpy
-4.Tkinter (built-in in Python)
-5.Pyttsx3 (for Text-to-Speech)
-6.Pickle (for model loading)
+1. OpenCV (cv2)
+2. Mediapipe
+3. Numpy
+4. Tkinter (built-in in Python)
+5. Pyttsx3 (for Text-to-Speech)
+6. Pickle (for model loading)
 
 ### Running the Project
 To start the ASL detection system, run:
