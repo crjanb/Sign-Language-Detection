@@ -1,6 +1,6 @@
 import pickle
 import numpy as np
-from RandomForest import RandomForest
+from model.RandomForest import RandomForest
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
@@ -41,66 +41,7 @@ y_predict = model.predict(x_test)
 score = accuracy_score(y_predict, y_test)
 print('{}% of samples were classified correctly !'.format(score * 100))
 
-# Print the additional metrics
-print(f'Precision: {precision:.2f}')
-print(f'Recall: {recall:.2f}')
-print(f'F1 Score: {f1:.2f}')
-print(f'Confusion Matrix:\n{conf_matrix}')
-print(f'ROC-AUC: {roc_auc:.2f}')
-print(f'Log Loss: {log_loss_value:.2f}')
-
 # Save the trained model
-with open('custom_model.p', 'wb') as f:
+with open('model.p', 'wb') as f:
     pickle.dump({'model': model, 'label_encoder': label_encoder}, f)
 
-# import pickle
-
-# from sklearn.ensemble import RandomForestClassifier
-# from sklearn.model_selection import train_test_split
-# from sklearn.metrics import accuracy_score
-# from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix, roc_auc_score, log_loss
-# import numpy as np
-
-
-# data_dict = pickle.load(open('./data.pickle', 'rb'))
-
-# data = np.asarray(data_dict['data'])
-# labels = np.asarray(data_dict['labels'])
-
-# if data.size == 0 or labels.size == 0:
-#     print("Error: No data found in data.pickle. Ensure the file contains valid data.")
-#     exit()
-
-# print(f'Data loaded: {data.shape[0]} samples with {data.shape[1] if data.ndim > 1 else 0} features each')
-
-# x_train, x_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, shuffle=True, stratify=labels)
-
-# model = RandomForestClassifier()
-
-# model.fit(x_train, y_train)
-
-# y_predict = model.predict(x_test)
-
-# score = accuracy_score(y_predict, y_test)
-
-# # Additional Metrics
-# precision = precision_score(y_test, y_predict, average='weighted')  # Adjust for multi-class classification
-# recall = recall_score(y_test, y_predict, average='weighted')
-# f1 = f1_score(y_test, y_predict, average='weighted')
-# conf_matrix = confusion_matrix(y_test, y_predict)
-# roc_auc = roc_auc_score(y_test, model.predict_proba(x_test), multi_class='ovr')  # If multi-class
-# log_loss_value = log_loss(y_test, model.predict_proba(x_test))
-
-# # Print the additional metrics
-# print(f'Precision: {precision:.2f}')
-# print(f'Recall: {recall:.2f}')
-# print(f'F1 Score: {f1:.2f}')
-# print(f'Confusion Matrix:\n{conf_matrix}')
-# print(f'ROC-AUC: {roc_auc:.2f}')
-# print(f'Log Loss: {log_loss_value:.2f}')
-
-# print('{}% of samples were classified correctly !'.format(score * 100))
-
-# f = open('sklearn_model.p', 'wb')
-# pickle.dump({'model': model}, f)
-# f.close()
